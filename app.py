@@ -50,3 +50,7 @@ else:
             text_input = open_ai_response(cv=cv, job_description=job_description)
 
             st.write(text_input)
+            
+            
+st.sidebar.title("About")
+st.sidebar.info("This app was created by Cameron Jones. You can find the source code on [GitHub] https://github.com/cameronjoejones/streamlit-cover-letter-generator.")
