@@ -47,6 +47,6 @@ else:
         submit = st.button("Submit")
 
         if submit:
-            text_input = open_ai_response(cv=cv, job_description=job_description)
+            text_input = open_ai_response(cv=cv, job_description=job_description, word_count=word_count)
 
             st.write(text_input)
