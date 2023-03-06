@@ -54,3 +54,4 @@ else:
             
 st.sidebar.title("About")
 st.sidebar.info("This app was created by Cameron Jones. You can find the source code on [GitHub] https://github.com/cameronjoejones/streamlit-cover-letter-generator.")
+
