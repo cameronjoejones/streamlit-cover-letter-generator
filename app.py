@@ -18,14 +18,14 @@ class OpenAI_API:
     def __exit__(self, exc_type, exc_val, exc_tb):
         pass
 
-def open_ai_response(cv, job_description, word_count):
-    prompt = f'Using the following (CV and Job Description) information, write a cover letter in a conversational tone (with a limit of {word_count} words): \n\nJob Description: {job_description}\n\nCV: {cv}'
+def open_ai_response(cv, job_description):
+    prompt = f'Using the following (CV and Job Description) information, write a cover letter in a conversational tone (with a limit of 250 words): \n\nJob Description: {job_description}\n\nCV: {cv}'
     model_engine = "text-davinci-002"
 
     response = openai.Completion.create(
     engine=model_engine,
     prompt=prompt,
-    max_tokens=14013
+    max_tokens=1000
     )
     answer = response.choices[0].text.strip()
 
@@ -34,19 +34,19 @@ def open_ai_response(cv, job_description, word_count):
 
 api_key = st.secrets["api_key"]['open_ai']
 if api_key is None:
-    st.error('API key not found. Please set the open_ai .streamlit/secrets.toml')
+    st.error('API key not found. Please set the api_key in the .streamlit/secrets.toml file.')
 else:
     with OpenAI_API(api_key):
-        columns = st.columns((1, 1), gap='medium')
+
+        st.info("Please enter your CV and the job description in the text areas below. Then click the submit button to generate your cover letter. (Reponse has a limit of 250 words)", icon='ℹ️')
+        columns = st.columns((1, 1))
 
         cv = columns[0].text_area("Enter your CV: ")
         job_description = columns[1].text_area("Enter the job description: ")
-        word_count = columns[0].radio("Select the number of words:", (200, 250))
-
 
         submit = st.button("Submit")
 
         if submit:
-            text_input = open_ai_response(cv=cv, job_description=job_description, word_count=word_count)
+            text_input = open_ai_response(cv=cv, job_description=job_description)
 
             st.write(text_input)
