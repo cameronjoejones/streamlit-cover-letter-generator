@@ -41,7 +41,7 @@ else:
 
         cv = columns[0].text_area("Enter your CV: ")
         job_description = columns[1].text_area("Enter the job description: ")
-        word_count = columns[0].radio("Select the number of words:", (200, 250, 300))
+        word_count = columns[0].radio("Select the number of words:", (200, 250))
 
 
         submit = st.button("Submit")
