@@ -25,7 +25,7 @@ def open_ai_response(cv, job_description, word_count):
     response = openai.Completion.create(
     engine=model_engine,
     prompt=prompt,
-    max_tokens=100000
+    max_tokens=10000
     )
     answer = response.choices[0].text.strip()
 
