@@ -39,7 +39,7 @@ if api_key is None:
 else:
     with OpenAI_API(api_key):
 
-        st.info("Please enter your CV and the job description in the text areas below. Then click the submit button to generate your cover letter. (Reponse has a limit of 250 words)", icon='ℹ️')
+#         st.info("Please enter your CV and the job description in the text areas below. Then click the submit button to generate your cover letter. (Reponse has a limit of 250 words)", icon='ℹ️')
         
         checkbox = st.checkbox("Example CV and Job Description")
 
