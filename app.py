@@ -21,7 +21,7 @@ class OpenAI_API:
 
 def open_ai_response(cv, job_description):
     prompt = f'Using the following (CV and Job Description) information, write a cover letter in a conversational tone (with a limit of 250 words): \n\nJob Description: {job_description}\n\nCV: {cv}'
-    model_engine = "text-davinci-002"
+    model_engine = "text-davinci-003"
 
     response = openai.Completion.create(
     engine=model_engine,
