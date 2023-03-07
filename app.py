@@ -1,5 +1,6 @@
 import streamlit as st
 import openai
+from example_data import example_cv, example_job_description
 
 st.set_page_config(page_title="Home Page", page_icon=":lemon:", layout="centered")
 
@@ -39,10 +40,19 @@ else:
     with OpenAI_API(api_key):
 
         st.info("Please enter your CV and the job description in the text areas below. Then click the submit button to generate your cover letter. (Reponse has a limit of 250 words)", icon='ℹ️')
-        columns = st.columns((1, 1))
+        
+        checkbox = st.checkbox("Example CV and Job Description")
 
-        cv = columns[0].text_area("Enter your CV: ")
-        job_description = columns[1].text_area("Enter the job description: ")
+        if checkbox == False:
+
+            columns = st.columns((1, 1))
+            cv = columns[0].text_area("Enter your CV: ")
+            job_description = columns[1].text_area("Enter the job description: ")
+
+        else:
+            columns = st.columns((1, 1))
+            cv = columns[0].text_area("Enter your CV: ", example_cv)
+            job_description = columns[1].text_area("Enter the job description: ", example_job_description)
 
         submit = st.button("Submit")
 
