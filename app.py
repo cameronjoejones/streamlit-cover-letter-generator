@@ -58,7 +58,7 @@ else:
 
         if submit:
             text_output = open_ai_response(cv=cv, job_description=job_description)
-            st.text_area(text_output)
+            st.text_area(label='Cover Letter:',value=text_output)
             
 st.sidebar.title("About")
 
