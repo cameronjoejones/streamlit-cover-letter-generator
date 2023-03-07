@@ -57,10 +57,8 @@ else:
         submit = st.button("Submit")
 
         if submit:
-            text_input = open_ai_response(cv=cv, job_description=job_description)
-
-            st.write(text_input)
-            
+            text_output = open_ai_response(cv=cv, job_description=job_description)
+            st.text_area(text_output)
             
 st.sidebar.title("About")
 
