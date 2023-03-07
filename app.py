@@ -57,8 +57,9 @@ else:
         submit = st.button("Submit")
 
         if submit:
-            text_output = open_ai_response(cv=cv, job_description=job_description)
-            st.text_area(label='Cover Letter:',value=text_output)
+            with st.spinner('Generating cover letter...'):
+                text_output = open_ai_response(cv=cv, job_description=job_description)
+                st.text_area(label='Cover Letter:',value=text_output)
             
 st.sidebar.title("About")
 
