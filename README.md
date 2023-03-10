@@ -1,3 +1,4 @@
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/cover-letter-generator.streamlit.app)
 # Cover Letter Generator
 
 This is a simple web application that generates cover letters using OpenAI's GPT-3 language model.
